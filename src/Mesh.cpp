@@ -449,13 +449,13 @@ void Mesh::drawMesh( cv::Mat &targetImg){
 			if(pUp.x > -9999.0 && pUp.y > -9999.0 && pCur.x > -9999.0 && pCur.y > -9999.0){
 				double dis = sqrt((pUp.x - pCur.x)*(pUp.x - pCur.x) + (pUp.y - pCur.y)*(pUp.y - pCur.y));
 				//if(dis<100){
-					line(temp, cv::Point2f(pUp.x,pUp.y), cv::Point2f(pCur.x,pCur.y),color,lineWidth,CV_AA);
+					line(temp, cv::Point2f(pUp.x,pUp.y), cv::Point2f(pCur.x,pCur.y),color,lineWidth,cv::LINE_AA);
 				//}
 			}
 			if(pLeft.x > -9999.0 && pLeft.y > -9999.0 && pCur.x > -9999.0 && pCur.y > -9999.0){
 				double dis = sqrt((pLeft.x - pCur.x)*(pLeft.x - pCur.x) + (pLeft.y - pCur.y)*(pLeft.y - pCur.y));
 				//if(dis<100){
-					line(temp, cv::Point2f(pLeft.x,pLeft.y),cv::Point2f(pCur.x,pCur.y), color,lineWidth,CV_AA);
+					line(temp, cv::Point2f(pLeft.x,pLeft.y),cv::Point2f(pCur.x,pCur.y), color,lineWidth,cv::LINE_AA);
 				//}
 			}
 			cv::circle(temp,cv::Point(pUp.x,pUp.y),lineWidth+2,cv::Scalar(45,57,167),-1);
@@ -477,7 +477,7 @@ void Mesh::drawMesh( cv::Mat &targetImg){
 		if (pLeft.x > -9999.0 && pLeft.y > -9999.0 && pLeftUp.x > -9999.0 && pLeftUp.y > -9999.0){
 			double dis = sqrt((pLeft.x - pLeftUp.x)*(pLeft.x - pLeftUp.x) + (pLeft.y - pLeftUp.y)*(pLeft.y - pLeftUp.y));
 			//if(dis<100){
-				line(temp, cv::Point2f(pLeft.x,pLeft.y), cv::Point2f(pLeftUp.x,pLeftUp.y),color,lineWidth,CV_AA);
+				line(temp, cv::Point2f(pLeft.x,pLeft.y), cv::Point2f(pLeftUp.x,pLeftUp.y),color,lineWidth,cv::LINE_AA);
 			//}
 		}
 		cv::circle(temp,cv::Point(pLeftUp.x,pLeftUp.y),lineWidth+2,cv::Scalar(45,57,167),-1);
@@ -497,7 +497,7 @@ void Mesh::drawMesh( cv::Mat &targetImg){
 		if (pLeftUp.x > -9999.0 && pLeftUp.y > -9999.0 && pUp.x > -9999.0 && pUp.y > -9999.0){
 			double dis = sqrt((pLeftUp.x - pUp.x)*(pLeftUp.x - pUp.x) + (pLeftUp.y - pUp.y)*(pLeftUp.y - pUp.y));
 			//if(dis<100){
-				line(temp, cv::Point2f(pLeftUp.x,pLeftUp.y), cv::Point2f(pUp.x,pUp.y),color,lineWidth,CV_AA);
+				line(temp, cv::Point2f(pLeftUp.x,pLeftUp.y), cv::Point2f(pUp.x,pUp.y),color,lineWidth,cv::LINE_AA);
 			//}
 		}
 		cv::circle(temp,cv::Point(pUp.x,pUp.y),lineWidth+2,cv::Scalar(45,57,167),-1);

@@ -12,7 +12,7 @@ vector<cv::Mat> VideoIO::GetFrames(char* name, double &fps){
 	}
 
 
-	fps = capture.get(CV_CAP_PROP_FPS);
+	fps = capture.get(cv::CAP_PROP_FPS);
 	//int m_video_height = (int)capture.get(CV_CAP_PROP_FRAME_HEIGHT);
 	//int m_video_width = (int)capture.get(CV_CAP_PROP_FRAME_WIDTH);
 	cv::Mat frame, frame_copy; // current video frame
@@ -37,7 +37,7 @@ void VideoIO::WriteFrames(vector<cv::Mat> Frames){
 	cv::VideoWriter vw;
 	int fps = 15;
 	cv::Size S = Frames[0].size();
-	vw.open("output.avi", CV_FOURCC('X', 'V', 'I', 'D'), fps, S);
+	vw.open("output.avi", cv::VideoWriter::fourcc('X', 'V', 'I', 'D'), fps, S);
 
 	for (int i = 0; i < Frames.size(); i++){
 		Frames[i].convertTo(Frames[i], CV_8UC3);

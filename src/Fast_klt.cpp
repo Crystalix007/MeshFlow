@@ -4,13 +4,13 @@ void myKLT(const cv::Mat source, const cv::Mat target, vector<cv::Point2f> &sour
 
 	cv::Mat img0Gray = cv::Mat::zeros(source.rows, source.cols, CV_8UC1);
 	cv::Mat curImgGray = cv::Mat::zeros(target.rows, target.cols, CV_8UC1);
-	cvtColor(source, img0Gray, CV_RGB2GRAY);
-	cvtColor(target, curImgGray, CV_RGB2GRAY);
+	cvtColor(source, img0Gray, cv::COLOR_RGB2GRAY);
+	cvtColor(target, curImgGray, cv::COLOR_RGB2GRAY);
 
 	vector<cv::Point2f> featurePtSet0;
 	int maxNum = 10000;
 	goodFeaturesToTrack(img0Gray, featurePtSet0, maxNum, 0.05, 5);
-	cornerSubPix(img0Gray, featurePtSet0, cv::Size(15, 15), cv::Size(-1, -1), cvTermCriteria(CV_TERMCRIT_ITER | CV_TERMCRIT_EPS, 20, 0.03));
+	cornerSubPix(img0Gray, featurePtSet0, cv::Size(15, 15), cv::Size(-1, -1), cv::TermCriteria(cv::TermCriteria::MAX_ITER | cv::TermCriteria::EPS, 20, 0.03));
 
 	vector<cv::Point2f> curfeaturePtSet;
 	vector<uchar> curFlag;

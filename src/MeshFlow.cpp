@@ -28,7 +28,7 @@ void MeshFlow::SetFeature(vector<cv::Point2f> &spt, vector<cv::Point2f> &tpt){
 	for (int i = 0; i < tpt.size(); i++){
 		n.motions[i] = spt[i] - tpt[i];
 	}
-	m_globalHomography = cv::findHomography(cv::Mat(spt), cv::Mat(tpt), CV_LMEDS);
+	m_globalHomography = cv::findHomography(cv::Mat(spt), cv::Mat(tpt), cv::LMEDS);
 }
 
 void MeshFlow::Execute(){
